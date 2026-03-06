@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiencia interactiva sobre el transistor, la mecánica cuántica y el Premio Nobel de Física 1956.">
+  <meta name="theme-color" content="#020508">
+  <title>El Transistor & la Mecánica Cuántica · Nobel 1956</title>
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Scroll progress -->
+  <div id="progress-bar"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ══════════════════════ NAV ══════════════════════ -->
+  <nav>
+    <span class="nav-logo">QTX — Quantum Transistor</span>
+    <ul class="nav-links">
+      <li><a href="#transistor">Transistor</a></li>
+      <li><a href="#cuantica">Cuántica</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#nobel">Nobel</a></li>
+      <li><a href="#legado">Legado</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════ HERO ══════════════════════ -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Física del Estado Sólido · 1947 — Presente</div>
+      <h1 class="hero-title">
+        <span class="t1">El</span>
+        <span class="t2">Transistor</span>
+        <span class="t3">Cuántico</span>
+      </h1>
+      <p class="hero-sub">
+        Cómo los electrones aprendieron a obedecer leyes imposibles —
+        y transformaron la civilización para siempre.
+      </p>
+      <div class="hero-cta">
+        <a href="#transistor" class="btn btn-primary">Explorar</a>
+        <a href="#nobel" class="btn btn-ghost">Premio Nobel 1956</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      desplazar
+    </div>
+  </header>
+
+  <!-- ══════════════════════ SECTION 1: TRANSISTOR ══════════════════════ -->
+  <section class="section" id="transistor">
+    <div class="container">
+
+      <div class="s-label reveal">01 — Fundamentos</div>
+      <h2 class="section-title reveal reveal-delay-1">¿Qué es un<br>Transistor?</h2>
+
+      <p class="reveal reveal-delay-2">
+        Un transistor es un componente electrónico capaz de <strong>amplificar o conmutar señales eléctricas</strong>.
+        Una corriente pequeñísima en la base controla una corriente mucho mayor entre el colector y el emisor.
+        Sin él, no existirían computadoras, teléfonos inteligentes, ni prácticamente ningún dispositivo digital moderno.
+      </p>
+      <p class="reveal reveal-delay-3">
+        Inventado en <em>Bell Laboratories</em> el 23 de diciembre de 1947, su tamaño ha pasado de varios centímetros
+        a apenas <strong>2 nanómetros</strong> — 25 veces más pequeño que el ADN.
+      </p>
+
+      <!-- DIAGRAM -->
+      <div class="diagram-wrap reveal">
+        <svg class="diagram-svg" width="560" height="240" viewBox="0 0 560 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main body -->
+          <rect x="180" y="50" width="200" height="140" rx="4"
+                fill="#071018" stroke="rgba(0,240,255,0.2)" stroke-width="1"/>
+
+          <!-- N Emitter -->
+          <rect x="181" y="51" width="198" height="44" rx="3"
+                fill="rgba(0,100,180,0.2)"/>
+          <text x="280" y="78" text-anchor="middle"
+                font-family="JetBrains Mono,monospace" font-size="9"
+                fill="rgba(0,200,255,0.7)" letter-spacing="3">N — EMISOR</text>
+
+          <!-- P Base -->
+          <rect x="181" y="95" width="198" height="50" fill="rgba(180,60,0,0.2)"/>
+          <text x="280" y="125" text-anchor="middle"
+                font-family="JetBrains Mono,monospace" font-size="9"
+                fill="rgba(255,120,40,0.8)" letter-spacing="3">P — BASE</text>
+
+          <!-- N Collector -->
+          <rect x="181" y="145" width="198" height="44" rx="3"
+                fill="rgba(0,100,180,0.2)"/>
+          <text x="280" y="173" text-anchor="middle"
+                font-family="JetBrains Mono,monospace" font-size="9"
+                fill="rgba(0,200,255,0.7)" letter-spacing="3">N — COLECTOR</text>
+
+          <!-- Junction lines -->
+          <line x1="181" y1="95" x2="379" y2="95" stroke="rgba(255,120,40,0.35)" stroke-width="1"/>
+          <line x1="181" y1="145" x2="379" y2="145" stroke="rgba(255,120,40,0.35)" stroke-width="1"/>
+
+          <!-- WIRES -->
+          <!-- Emitter wire -->
+          <line class="svg-wire" x1="379" y1="73" x2="480" y2="73"
+                stroke="rgba(0,240,255,0.7)" stroke-width="1.5"/>
+          <polyline class="svg-wire svg-wire-2" points="455,60 480,73 455,86"
+                    stroke="rgba(0,240,255,0.7)" stroke-width="1.5" fill="none"/>
+          <text x="492" y="77" font-family="JetBrains Mono,monospace"
+                font-size="12" fill="#00f0ff" font-weight="700">E</text>
+          <text x="510" y="77" font-family="JetBrains Mono,monospace"
+                font-size="8" fill="rgba(0,240,255,0.5)" letter-spacing="1">EMISOR</text>
+
+          <!-- Base wire -->
+          <line class="svg-wire svg-wire-3" x1="80" y1="120" x2="180" y2="120"
+                stroke="rgba(255,120,40,0.8)" stroke-width="1.5"/>
+          <circle cx="80" cy="120" r="4" fill="rgba(255,120,40,0.8)"/>
+          <text x="38" y="124" font-family="JetBrains Mono,monospace"
+                font-size="12" fill="#ff7830" font-weight="700">B</text>
+          <text x="10" y="140" font-family="JetBrains Mono,monospace"
+                font-size="8" fill="rgba(255,120,40,0.5)" letter-spacing="1">BASE</text>
+
+          <!-- Collector wire -->
+          <line class="svg-wire svg-wire-2" x1="379" y1="167" x2="480" y2="167"
+                stroke="rgba(0,240,255,0.7)" stroke-width="1.5"/>
+          <polyline class="svg-wire svg-wire-3" points="455,154 480,167 455,180"
+                    stroke="rgba(0,240,255,0.7)" stroke-width="1.5" fill="none"/>
+          <text x="492" y="171" font-family="JetBrains Mono,monospace"
+                font-size="12" fill="#00f0ff" font-weight="700">C</text>
+          <text x="510" y="171" font-family="JetBrains Mono,monospace"
+                font-size="8" fill="rgba(0,240,255,0.5)" letter-spacing="1">COLECTOR</text>
+
+          <!-- Electron flow paths (animated) -->
+          <path id="stream-1" class="electron-stream"
+                d="M 480 73 Q 530 73 530 20 Q 530 5 510 5 L 50 5 Q 30 5 30 25 L 30 120"
+                stroke="rgba(0,240,255,0.55)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path id="stream-2" class="electron-stream"
+                d="M 30 120 L 30 215 Q 30 235 50 235 L 510 235 Q 530 235 530 215 Q 530 200 480 167"
+                stroke="rgba(0,240,255,0.4)" stroke-width="1.2" fill="none" stroke-linecap="round"
+                style="animation-delay: 0.4s"/>
+
+          <!-- Region labels -->
+          <g id="svg-emitter" opacity="1" style="transition: opacity 0.4s;">
+            <rect x="182" y="52" width="8" height="42" rx="2" fill="rgba(0,200,255,0.5)"/>
+          </g>
+          <g id="svg-collector" opacity="1" style="transition: opacity 0.4s;">
+            <rect x="182" y="146" width="8" height="42" rx="2" fill="rgba(0,200,255,0.5)"/>
+          </g>
+
+          <!-- Gain label -->
+          <text x="280" y="230" text-anchor="middle"
+                font-family="JetBrains Mono,monospace" font-size="8"
+                fill="rgba(255,255,255,0.15)" letter-spacing="3">
+            TRANSISTOR BJT NPN — I_C = β · I_B
+          </text>
+        </svg>
+      </div>
+
+      <!-- SIMULATOR -->
+      <div class="sim-wrap reveal">
+        <div class="sim-header">Simulador Interactivo — Transistor BJT</div>
+
+        <div class="sim-grid">
+          <!-- Controls -->
+          <div class="sim-panel">
+            <div class="sim-panel-title">Señal de Entrada</div>
+            <div class="control-group">
+              <div class="control-item">
+                <span class="control-label">Base (ON/OFF)</span>
+                <label class="toggle-wrap">
+                  <input type="checkbox" id="base-toggle">
+                  <div class="toggle-track"></div>
+                  <div class="toggle-thumb"></div>
+                </label>
+              </div>
+              <div class="control-item" style="flex-direction:column; align-items:flex-start; gap:0.5rem;">
+                <div style="display:flex; justify-content:space-between; width:100%;">
+                  <span class="control-label">Tensión V_BE</span>
+                  <span id="voltage-value" style="font-family:var(--font-mono);font-size:0.65rem;color:var(--orange);">0.0 V</span>
+                </div>
+                <input type="range" class="v-slider" id="voltage-slider"
+                       min="0" max="5" step="0.1" value="0">
+              </div>
+              <div class="control-item">
+                <span class="control-label">β (ganancia)</span>
+                <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--cyan);">×220</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center status -->
+          <div class="sim-center">
+            <div id="sim-status" class="sim-status-badge off">CORTE (OFF)</div>
+            <canvas id="osc-canvas" style="width:120px;height:80px;border-radius:3px;border:1px solid var(--border);"></canvas>
+            <span style="font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.15em;color:var(--text-dim);">osciloscopio</span>
+          </div>
+
+          <!-- Output -->
+          <div class="sim-panel">
+            <div class="sim-panel-title">Señal de Salida</div>
+            <div style="text-align:center; padding: 0.5rem 0;">
+              <div id="output-value" class="output-value">0.00</div>
+              <div id="output-unit" class="output-unit">mA — I_Colector</div>
+              <div class="output-meter" style="margin-top:1rem;">
+                <div class="output-meter-fill" id="meter-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-desc" style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-muted);font-style:italic;line-height:1.7;transition:color 0.5s;padding:1rem;background:rgba(0,0,0,0.3);border-radius:3px;">
+          La base no recibe señal. La barrera cuántica impide el flujo de portadores.
+        </div>
+      </div>
+
+      <div class="eq-box reveal">
+        <span class="eq-label">Ganancia de corriente — Parámetro hFE</span>
+        <div class="eq-formula">β = I<sub>C</sub> / I<sub>B</sub> &nbsp;&nbsp;|&nbsp;&nbsp; I<sub>C</sub> = β · I<sub>B</sub> &nbsp;&nbsp;|&nbsp;&nbsp; β ∈ [50, 500]</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SECTION 2: CUÁNTICA ══════════════════════ -->
+  <section class="section" id="cuantica">
+    <div class="container">
+
+      <div class="s-label orange reveal">02 — Mecánica Cuántica</div>
+      <h2 class="section-title reveal reveal-delay-1">La Física que<br>hace posible<br>el transistor</h2>
+
+      <p class="reveal reveal-delay-2">
+        El transistor no es solo ingeniería — es <strong>mecánica cuántica aplicada</strong>. Los electrones
+        en un semiconductor no se comportan como pequeñas bolas clásicas: son ondas de probabilidad que
+        siguen leyes radicalmente distintas, y sin comprenderlas, el transistor jamás habría sido diseñado.
+      </p>
+
+      <div class="pullquote reveal">
+        <p>"Si crees que entiendes la mecánica cuántica, es que no entiendes la mecánica cuántica."</p>
+        <cite>— Richard P. Feynman · Nobel de Física 1965</cite>
+      </div>
+
+      <!-- Quantum cards grid -->
+      <div class="quantum-grid">
+        <div class="q-card reveal reveal-delay-1">
+          <span class="q-card-icon">🌊</span>
+          <div class="q-card-title">Dualidad Onda-Partícula</div>
+          <p class="q-card-text">Los electrones son simultáneamente partículas y ondas. Su función de onda ψ describe probabilidades de posición — no trayectorias definidas. Esta naturaleza ondulatoria crea las bandas de energía en sólidos cristalinos.</p>
+        </div>
+        <div class="q-card reveal reveal-delay-2">
+          <span class="q-card-icon">📦</span>
+          <div class="q-card-title">Cuantización de Energía</div>
+          <p class="q-card-text">Los electrones solo pueden ocupar niveles de energía discretos —cuantizados—. En un cristal, estos niveles se fusionan en bandas continuas, definiendo si el material conduce, aísla o es semiconductor.</p>
+        </div>
+        <div class="q-card orange reveal reveal-delay-3">
+          <span class="q-card-icon">⚛️</span>
+          <div class="q-card-title">Principio de Exclusión de Pauli</div>
+          <p class="q-card-text">Dos electrones no pueden ocupar idéntico estado cuántico. Este principio fuerza a los electrones a llenar niveles sucesivos, estructurando la tabla periódica y determinando cómo se llenan las bandas.</p>
+        </div>
+        <div class="q-card orange reveal reveal-delay-1">
+          <span class="q-card-icon">🔮</span>
+          <div class="q-card-title">Efecto Túnel Cuántico</div>
+          <p class="q-card-text">Una partícula puede atravesar una barrera de potencial aunque clásicamente carezca de energía suficiente. En transistores de 2–5 nm, el túnel cuántico causa corrientes de fuga que los ingenieros deben gestionar activamente.</p>
+        </div>
+        <div class="q-card reveal reveal-delay-2">
+          <span class="q-card-icon">📊</span>
+          <div class="q-card-title">Distribución de Fermi-Dirac</div>
+          <p class="q-card-text">Describe la probabilidad de que un estado cuántico esté ocupado a temperatura T. Esta distribución — puramente cuántica — predice exactamente cómo los electrones se distribuyen en semiconductores dopados.</p>
+        </div>
+        <div class="q-card reveal reveal-delay-3">
+          <span class="q-card-icon">🔗</span>
+          <div class="q-card-title">Bandas de Energía</div>
+          <p class="q-card-text">En un sólido cristalino, los orbitales atómicos se hibridizan formando bandas. La banda de valencia, la prohibida (gap) y la de conducción determinan el comportamiento eléctrico de cada material.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal">La Teoría de Bandas — el corazón cuántico</h3>
+
+      <p class="reveal">
+        Cuando millones de átomos de silicio forman un cristal, sus orbitales individuales se combinan
+        en <strong>bandas de energía continuas</strong>. En silicio puro, la banda prohibida mide <em>~1.1 eV</em>:
+        suficientemente pequeña para que los electrones la crucen con pequeñas perturbaciones, pero lo
+        bastante grande para controlar ese cruce de forma precisa mediante dopaje.
+      </p>
+
+      <!-- Bands Visualizer -->
+      <div class="bands-wrap reveal">
+        <div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:1rem;text-transform:uppercase;">
+          Visualizador — Bandas de Energía en Silicio (Si)
+        </div>
+        <canvas id="bands-canvas"></canvas>
+        <div class="bands-labels">
+          <span class="band-label">
+            <span class="band-dot" style="background:rgba(0,200,255,0.7);"></span>
+            Banda de Conducción
+          </span>
+          <span class="band-label">
+            <span class="band-dot" style="background:rgba(200,60,20,0.7);"></span>
+            Banda Prohibida (Gap ≈ 1.1 eV)
+          </span>
+          <span class="band-label">
+            <span class="band-dot" style="background:rgba(0,120,200,0.7);"></span>
+            Banda de Valencia
+          </span>
+          <span class="band-label">
+            <span class="band-dot" style="background:rgba(0,240,255,1);"></span>
+            Electrón saltando el gap (e⁻)
+          </span>
+        </div>
+      </div>
+
+      <div class="eq-box reveal">
+        <span class="eq-label">Distribución de Fermi-Dirac — Ocupación de estados cuánticos</span>
+        <div class="eq-formula">
+          f(E) = 1 / (e<sup>(E − E<sub>F</sub>) / k<sub>B</sub>T</sup> + 1)
+        </div>
+      </div>
+
+      <div class="q-callout reveal">
+        <span class="q-callout-label">Fenómeno cuántico en la unión P-N</span>
+        <p><strong>Barrera de potencial:</strong> En la unión entre regiones P y N se forma una zona de deplexión. Esta barrera actúa como la "banda prohibida" que los electrones deben superar — análoga al gap cuántico.</p>
+        <p><strong>Polarización directa:</strong> Al aplicar tensión correcta en la base, la barrera se reduce. Los electrones minoritarios pueden difundir y cruzarla — proceso gobernado por la ecuación de Boltzmann cuántica.</p>
+        <p><strong>Amplificación:</strong> El resultado es que I<sub>C</sub> = β·I<sub>B</sub>, donde β puede ser 100–500. Una señal débil controla una corriente 100× mayor — gracias exclusivamente a la física cuántica.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SECTION 3: HISTORIA ══════════════════════ -->
+  <section class="section" id="historia">
+    <div class="container">
+
+      <div class="s-label reveal">03 — Cronología</div>
+      <h2 class="section-title reveal reveal-delay-1">El camino<br>hacia el Nobel</h2>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">1900</div>
+          <div class="tl-title">Planck y el Cuanto de Acción</div>
+          <div class="tl-body">Max Planck propone que la energía se emite en paquetes discretos (cuantos) para resolver la "catástrofe ultravioleta". Es el nacimiento involuntario de la mecánica cuántica — la semilla de todo lo que vendría.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">1926 — 1927</div>
+          <div class="tl-title">Formalismo Cuántico Completo</div>
+          <div class="tl-body">Schrödinger formula su ecuación de onda. Heisenberg su principio de incertidumbre. Dirac unifica relatividad y mecánica cuántica. La física de los electrones en sólidos ya puede calcularse con rigor matemático.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-date">1931</div>
+          <div class="tl-title">Teoría de Bandas (Wilson)</div>
+          <div class="tl-body">Alan Wilson aplica la mecánica cuántica a cristales y formula la teoría de bandas de energía. Por primera vez se explica matemáticamente por qué unos materiales conducen y otros no — la base teórica del transistor.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-date">1940 — 1945</div>
+          <div class="tl-title">El problema del amplificador de estado sólido</div>
+          <div class="tl-body">Bell Telephone Laboratories enfrenta el reto: los tubos de vacío son frágiles, consumen energía y son lentos. William Shockley convence a la dirección de apostar por semiconductores para crear un amplificador más fiable.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-date">23 Dic 1947</div>
+          <div class="tl-title">El primer transistor funcional</div>
+          <div class="tl-body">John Bardeen y Walter Brattain construyen el transistor de contacto de punta usando germanio. La primera demostración amplifica voz humana. Shockley no estaba en el laboratorio ese día histórico — hecho que marcará su relación para siempre.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot orange"></div>
+          <div class="tl-date">1948</div>
+          <div class="tl-title">El transistor de unión bipolar (Shockley)</div>
+          <div class="tl-body">Shockley, impulsado en parte por el deseo de ser el inventor principal, desarrolla el transistor BJT — una versión más robusta basada en sus propias predicciones cuánticas sobre uniones P-N. Este diseño dominará durante décadas.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">1954</div>
+          <div class="tl-title">Silicon Valley nace</div>
+          <div class="tl-body">Texas Instruments produce el primer transistor de silicio comercial, sustituyendo al germanio. El silicio, más abundante y estable, se convierte en el material del siglo XX. Shockley funda su laboratorio en Palo Alto — la semilla del Silicon Valley.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-date">1956</div>
+          <div class="tl-title">🏅 Premio Nobel de Física</div>
+          <div class="tl-body">Bardeen, Brattain y Shockley reciben el Nobel "por sus investigaciones sobre semiconductores y el descubrimiento del efecto transistor." Es la primera vez que la mecánica cuántica aplicada a sólidos recibe el máximo reconocimiento científico.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-date">1958 — Hoy</div>
+          <div class="tl-title">El circuito integrado y la era digital</div>
+          <div class="tl-body">Jack Kilby (Nobel 2000) integra múltiples transistores en un chip. La Ley de Moore describe su duplicación cada ~2 años. Hoy un chip M3 Ultra contiene más de 50 mil millones de transistores — todos basados en la misma física cuántica de 1947.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SECTION 4: NOBEL ══════════════════════ -->
+  <section class="section" id="nobel">
+    <div class="container">
+
+      <div class="s-label gold reveal">04 — Premio Nobel 1956</div>
+      <h2 class="section-title reveal reveal-delay-1">Los tres padres<br>del transistor</h2>
+
+      <div class="nobel-hero reveal">
+        <span class="nobel-icon">🏅</span>
+        <div class="nobel-tag">Real Academia Sueca de las Ciencias · Estocolmo, 1956</div>
+        <div class="nobel-title">Premio Nobel de Física</div>
+
+        <div class="inventors-grid">
+          <div class="inventor">
+            <div class="inventor-avatar">🔬</div>
+            <div class="inventor-name">John Bardeen</div>
+            <div class="inventor-role">Teoría cuántica de<br>estados superficiales</div>
+          </div>
+          <div class="inventor">
+            <div class="inventor-avatar">⚗️</div>
+            <div class="inventor-name">Walter Brattain</div>
+            <div class="inventor-role">Experimento & primer<br>transistor de contacto</div>
+          </div>
+          <div class="inventor">
+            <div class="inventor-avatar">📐</div>
+            <div class="inventor-name">William Shockley</div>
+            <div class="inventor-role">Transistor BJT &<br>teoría de uniones P-N</div>
+          </div>
+        </div>
+
+        <p style="color:rgba(200,180,80,0.6);font-size:0.85rem;font-style:italic;margin-top:1rem;">
+          John Bardeen es el único científico en recibir el Nobel de Física dos veces —<br>
+          también en 1972 por la teoría BCS de la superconductividad.
+        </p>
+      </div>
+
+      <h3 class="reveal">El fenómeno cuántico exacto que ganó el Nobel</h3>
+
+      <p class="reveal">
+        El Comité Nobel reconoció específicamente el <strong>"efecto transistor"</strong>: el control y amplificación
+        de corrientes eléctricas mediante fenómenos cuánticos en superficies semiconductoras. No fue solo un
+        invento de laboratorio — fue la confirmación experimental de que la teoría cuántica de sólidos era
+        correcta y podía generar tecnología revolucionaria.
+      </p>
+
+      <div class="q-callout reveal">
+        <span class="q-callout-label">El descubrimiento cuántico de Bardeen</span>
+        <p>Bardeen descubrió que los <strong>estados superficiales cuánticos</strong> en la superficie del germanio
+           atrapaban electrones, impidiendo el efecto de campo esperado. La superficie de un semiconductor crea
+           estados cuánticos "trampa" — niveles de energía dentro del gap que capturan portadores.</p>
+        <p>Al comprender y manipular estos estados superficiales, Bardeen y Brattain lograron controlar la corriente
+           de manera reproducible. Este fue el breakthrough cuántico que hizo posible el primer transistor.</p>
+        <p>Shockley formalizó matemáticamente el comportamiento de portadores en uniones P-N mediante las
+           <strong>ecuaciones de continuidad cuántica</strong>, prediciendo el transistor BJT desde primeros principios
+           antes de construirlo.</p>
+      </div>
+
+      <h3 class="reveal">La ironía de Bell Labs</h3>
+
+      <p class="reveal">
+        La historia del Nobel está cargada de tensión humana. Shockley lideró el proyecto y planteó la hipótesis
+        original. Sin embargo, cuando Bardeen y Brattain lograron el primer transistor, usaron un mecanismo
+        <em>diferente al predicho por Shockley</em> — y lo hicieron mientras él estaba de viaje. Shockley respondió
+        desarrollando el BJT. El Nobel reconoció las tres contribuciones, aunque las relaciones quedaron fracturadas
+        permanentemente. Shockley terminó fundando su propio laboratorio en Palo Alto con resultados históricos —
+        aunque turbulentes — para Silicon Valley.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ SECTION 5: LEGADO ══════════════════════ -->
+  <section class="section" id="legado">
+    <div class="container">
+
+      <div class="s-label green reveal">05 — Legado & Futuro</div>
+      <h2 class="section-title reveal reveal-delay-1">De la cuántica<br>al mundo digital</h2>
+
+      <p class="reveal reveal-delay-2">
+        El transistor desencadenó la revolución tecnológica más vertiginosa de la historia humana.
+        La <em>Ley de Moore</em> — la duplicación de transistores por chip cada ~2 años — describió
+        durante décadas la trayectoria que llevó al mundo digital que habitamos hoy.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num cyan" data-count="50000000000">0</div>
+          <div class="stat-label">Transistores en chip M3 Ultra</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num orange" style="font-size:2.5rem;" data-count="2">0</div>
+          <div class="stat-label">nm — nodo de proceso (TSMC 2025)</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-num green" style="font-size:2rem;">10<sup style="font-size:1.2rem;">21</sup></div>
+          <div class="stat-label">Transistores fabricados en la historia</div>
+        </div>
+      </div>
+
+      <h3 class="reveal">El efecto túnel: de curiosidad a obstáculo</h3>
+
+      <p class="reveal">
+        En transistores modernos de <strong>2–5 nanómetros</strong>, el efecto túnel cuántico deja de ser
+        una curiosidad teórica. Los electrones simplemente "se escapan" espontáneamente a través de barreras
+        que deberían contenerlos, generando corrientes de fuga y disipación de calor que los ingenieros
+        deben compensar con nuevas arquitecturas — FinFET, transistores GAA (gate-all-around), nanosheets —
+        todas ellas diseñadas desde los principios cuánticos de 1947.
+      </p>
+
+      <div class="q-callout reveal">
+        <span class="q-callout-label">Del transistor al qubit — La línea continua</span>
+        <p><strong>1947:</strong> El transistor nace de la mecánica cuántica aplicada a semiconductores.</p>
+        <p><strong>1958:</strong> El circuito integrado multiplica el poder del transistor exponencialmente.</p>
+        <p><strong>1994:</strong> Shor demuestra que un computador cuántico podría factorizar números exponencialmente más rápido que cualquier clásico.</p>
+        <p><strong>2025:</strong> Computadores cuánticos con miles de qubits son realidad de laboratorio. Google, IBM y Microsoft compiten en la misma carrera que Bell Labs en 1947 — esta vez con cuantos como unidad básica de información.</p>
+      </div>
+
+      <div class="pullquote reveal">
+        <p>"El transistor fue el primer dispositivo que requería un conocimiento profundo de la mecánica cuántica para su diseño. Todo lo que vino después tiene sus raíces en esa misma física."</p>
+        <cite>— Michael Riordan & Lillian Hoddeson · "Crystal Fire: The Invention of the Transistor"</cite>
+      </div>
+
+      <p class="reveal" style="text-align:center; color: var(--text-dim); font-size:0.95rem; margin-top:2rem;">
+        La mecánica cuántica, desarrollada para explicar el átomo, terminó construyendo el mundo digital —<br>
+        y ahora promete transformarlo nuevamente con la computación cuántica.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer>
+    <div class="footer-logo">QTX</div>
+    <div class="footer-right">
+      <div>Física del Estado Sólido · Nobel 1956</div>
+      <div style="margin-top:0.3rem; color: var(--text-dim);">Bardeen · Brattain · Shockley</div>
+      <div style="margin-top:0.3rem;">MIT License · 2025</div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+  <script src="js/canvas.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/transistor.js"></script>
+
+</body>
+</html>
